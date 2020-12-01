@@ -85,17 +85,19 @@ if __name__ == '__main__':
         url = data[i][2]
 
 
-        bot = LinkedinBot(username, password,recruiterName, company)
-        bot.login(username, password)
-        bot._nav(url)
-        bot.connect()
-        bot.sendMessage(recruiterName,company)
+        try:
+            bot = LinkedinBot(username, password, recruiterName, company)
+            bot.login(username, password)
+            bot._nav(url)
+            bot.connect()
+            bot.sendMessage(recruiterName, company)
+            i += 1
+            print("Current Recruiter: {} {}% Done".format(recruiterName, round(i / 2135)))
+
+        except Exception:
+            i += 1
+            print("Current Recruiter: {} {}% Done".format(recruiterName, round(i / 2135)))
 
 
-
-        print("Current Recruiter: {} {}% Done".format(recruiterName, round(i/  len(data),2)))
-
-
-        i +=1
 
 
