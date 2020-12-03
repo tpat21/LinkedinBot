@@ -73,9 +73,10 @@ if __name__ == '__main__':
 
     data = (np.array(database[['Searched Company', 'Name', 'Linkedin Link']]))
 
-
+    bot = LinkedinBot(username, password, recruiterName, company)
+    bot.login(username, password)
     
-    inc =lambda i: i + 1
+
     
 
     i = 0
@@ -86,8 +87,6 @@ if __name__ == '__main__':
 
 
         try:
-            bot = LinkedinBot(username, password, recruiterName, company)
-            bot.login(username, password)
             bot._nav(url)
             bot.connect()
             bot.sendMessage(recruiterName, company)
